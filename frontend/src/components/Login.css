@@ -89,5 +89,9 @@
     .login-container button {
       font-size: 0.9rem;
     }
+
+    .last{
+        text-align: center;
+    }
   }
   

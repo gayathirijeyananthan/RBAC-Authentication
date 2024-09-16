@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import AdminPanel from './components/AdminPanel';
 import UserDashboard from './components/UserDashboard';
+import LandingPage from './components/LandingPage';
 
 // Main App Component
 const App = () => {
@@ -38,6 +39,8 @@ const App = () => {
   return (
     <Router>
       <Routes>
+      <Route path="/" element={<LandingPage/>} />
+
         {/* Public Routes */}
         <Route path="/login" element={<Login setToken={setToken} setRole={setRole} />} />
         <Route path="/register" element={<Register />} />
