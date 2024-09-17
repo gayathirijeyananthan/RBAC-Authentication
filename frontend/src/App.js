@@ -1,13 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode';
-import Login from './components/Login';
-import Register from './components/Register';
-import AdminPanel from './components/AdminPanel';
-import UserDashboard from './components/UserDashboard';
-import LandingPage from './components/LandingPage';
-import Educator from './components/Educator'
-import EduDashboard from './components/EduDashboard';
+import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import AdminPanel from "./components/AdminPanel";
+import UserDashboard from "./components/UserDashboard";
+import LandingPage from "./components/LandingPage";
+import Educator from "./components/Educator";
+import EduDashboard from "./components/EduDashboard";
+import Navbar from "./components/Navbar";
+import '../src/components/LandingPage.css'
 
 // Main App Component
 const App = () => {
@@ -16,7 +23,7 @@ const App = () => {
 
   // Check if token exists in localStorage on page load
   useEffect(() => {
-    const storedToken = localStorage.getItem('token');
+    const storedToken = localStorage.getItem("token");
     if (storedToken) {
       try {
         // Try to decode the token safely
@@ -24,43 +31,63 @@ const App = () => {
         setToken(storedToken);
         setRole(decoded.role);
       } catch (error) {
-        console.error('Invalid token', error);
+        console.error("Invalid token", error);
         // Optionally, clear the token if it's invalid
-        localStorage.removeItem('token');
+        localStorage.removeItem("token");
       }
     }
   }, []);
 
   // Logout function
   const logout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     setToken(null);
     setRole(null);
   };
 
   return (
     <Router>
+      <Navbar />
       <Routes>
-      <Route path="/" element={<LandingPage/>} />
+        <Route path="/" element={<LandingPage />} />
         {/* Public Routes */}
-        <Route path="/login" element={<Login setToken={setToken} setRole={setRole} />} />
+        <Route
+          path="/login"
+          element={<Login setToken={setToken} setRole={setRole} />}
+        />
         <Route path="/register" element={<Register />} />
-        <Route path="/educator/register" element={<Educator/>} />
-
-
+        <Route path="/educator/register" element={<Educator />} />
 
         {/* Protected Routes */}
         <Route
           path="/admin"
-          element={role === 'admin' ? <AdminPanel logout={logout} /> : <Navigate to="/" />}
+          element={
+            role === "admin" ? (
+              <AdminPanel logout={logout} />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
         />
         <Route
           path="/user"
-          element={role === 'user' ? <UserDashboard logout={logout} /> : <Navigate to="/" />}
+          element={
+            role === "user" ? (
+              <UserDashboard logout={logout} />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
         />
-         <Route
+        <Route
           path="/educator"
-          element={role === 'educator' ? <EduDashboard logout={logout} /> : <Navigate to="/" />}
+          element={
+            role === "educator" ? (
+              <EduDashboard logout={logout} />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
         />
       </Routes>
     </Router>

@@ -67,6 +67,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../components/Login.css';
 
+
 const Login = ({ setToken, setRole }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -89,13 +90,14 @@ const Login = ({ setToken, setRole }) => {
       } else {
         navigate('/user');
       }
-      
+
     } catch (error) {
       console.error('Login failed', error);
     }
   };
 
   return (
+    <div className="main-container">
     <div className="login-container">
       <form onSubmit={handleSubmit}>
         <h2>Login</h2>
@@ -118,6 +120,7 @@ const Login = ({ setToken, setRole }) => {
         <br></br>
         <p className='last'>Don't Have an Account?<a href="/register"> Register Here</a></p>
       </form>
+    </div>
     </div>
   );
 };

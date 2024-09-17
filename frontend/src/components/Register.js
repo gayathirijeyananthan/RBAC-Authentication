@@ -21,6 +21,7 @@ const Register = () => {
   };
 
   return (
+    <div className="main1-container">
     <div className="register-container">
       <form onSubmit={handleSubmit}>
         <h2>Register</h2>
@@ -48,6 +49,7 @@ const Register = () => {
       
         <button type="submit">Register</button>
       </form>
+    </div>
     </div>
   );
 };

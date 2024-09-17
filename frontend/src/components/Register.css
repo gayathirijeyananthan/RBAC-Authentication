@@ -16,6 +16,15 @@
     height: 100vh;
   }
   
+  .main1-container{
+    font-family: Arial, sans-serif;
+    height: 100vh; /* Full viewport height */
+    width: 100vw;  /* Full viewport width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px;
+  }
   /* Register Container */
   .register-container {
     background-color: #fff;

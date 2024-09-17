@@ -71,7 +71,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Educator.css'; // Import external CSS file
-
+import '../components/Register.css'
 
 const EducatorRegistration = () => {
   const [username, setUsername] = useState('');
@@ -110,6 +110,7 @@ const EducatorRegistration = () => {
   };
 
   return (
+    <div className="main1-container">
     <div className="registration-form-container">
       <h2>Educator Registration</h2>
       <form onSubmit={handleSubmit}>
@@ -149,6 +150,7 @@ const EducatorRegistration = () => {
         <button type="submit" className="submit-btn">Register</button>
         {error && <p className="error-message">{error}</p>}
       </form>
+    </div>
     </div>
   );
 };

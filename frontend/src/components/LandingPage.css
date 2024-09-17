@@ -10,12 +10,17 @@
   }
   
   .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    color: white;
-    padding: 1rem;
+    position: fixed; /* Fixes navbar at the top */
+  top: 0;
+  width: 100%; /* Full width */
+  background-color: #333; /* Background color */
+  padding: 10px 20px; /* Padding for the navbar */
+  z-index: 1000; /* Keeps the navbar on top of other elements */
+  display: flex;
+  justify-content: space-between; /* Aligns logo and links */
+  align-items: center;
+  color: white;
+
   }
   
   .navbar-logo h1 {
@@ -47,11 +52,13 @@
   }
   
   .main-content {
+    padding-top: 300px;
     text-align: center;
     margin: 2rem;
   }
   
   .cta-button {
+    margin-top: 30px;
     display: inline-block;
     padding: 1rem 2rem;
     background-color: #007bff;
