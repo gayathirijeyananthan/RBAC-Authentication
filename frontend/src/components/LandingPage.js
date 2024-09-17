@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './LandingPage.css'; // Importing the CSS file for styling
 import Login from '../components/Login'; // Import the Login component
 import Register from '../components/Register'; // Import the Register component
+import Educator from '../components/Educator';
 
 const LandingPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,6 +26,8 @@ const LandingPage = () => {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/resources">Resources</Link></li>
           <li><Link to="/login">Login</Link></li>
+          <li><Link to="/educator/register">Register as educator</Link></li>
+
 
           
         </ul>

@@ -6,6 +6,7 @@ import Register from './components/Register';
 import AdminPanel from './components/AdminPanel';
 import UserDashboard from './components/UserDashboard';
 import LandingPage from './components/LandingPage';
+import Educator from './components/Educator'
 
 // Main App Component
 const App = () => {
@@ -44,6 +45,8 @@ const App = () => {
         {/* Public Routes */}
         <Route path="/login" element={<Login setToken={setToken} setRole={setRole} />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/educator/register" element={<Educator/>} />
+
 
         {/* Protected Routes */}
         <Route

@@ -19,6 +19,44 @@ exports.register = async (req, res) => {
   }
 };
 
+exports.Eduregister = async (req, res) => {
+  const { username, email, password } = req.body;
+
+  // Validate the input
+  if (!username || !email || !password) {
+    return res.status(400).json({ error: 'Missing required fields' });
+  }
+
+  try {
+    // Check if user already exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ error: 'User already exists' });
+    }
+
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create a new user
+    const newEducator = new User({
+      username,
+      email,
+      password: hashedPassword,
+      role: 'educator' // Explicitly set role to 'educator'
+    });
+
+    // Save the user to the database
+    await newEducator.save();
+    res.status(201).json({ message: 'Educator registered successfully' });
+  } catch (error) {
+    console.error('Registration error:', error); // Log the error for debugging
+    res.status(500).json({ error: 'Registration failed' });
+  }
+};
+
+
+
+
 // Login user
 exports.login = async (req, res) => {
   const { email, password } = req.body;
