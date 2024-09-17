@@ -7,6 +7,7 @@ import AdminPanel from './components/AdminPanel';
 import UserDashboard from './components/UserDashboard';
 import LandingPage from './components/LandingPage';
 import Educator from './components/Educator'
+import EduDashboard from './components/EduDashboard';
 
 // Main App Component
 const App = () => {
@@ -41,11 +42,11 @@ const App = () => {
     <Router>
       <Routes>
       <Route path="/" element={<LandingPage/>} />
-
         {/* Public Routes */}
         <Route path="/login" element={<Login setToken={setToken} setRole={setRole} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/educator/register" element={<Educator/>} />
+
 
 
         {/* Protected Routes */}
@@ -56,6 +57,10 @@ const App = () => {
         <Route
           path="/user"
           element={role === 'user' ? <UserDashboard logout={logout} /> : <Navigate to="/" />}
+        />
+         <Route
+          path="/educator"
+          element={role === 'educator' ? <EduDashboard logout={logout} /> : <Navigate to="/" />}
         />
       </Routes>
     </Router>

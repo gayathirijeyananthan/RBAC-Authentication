@@ -84,9 +84,12 @@ const Login = ({ setToken, setRole }) => {
 
       if (role === 'admin') {
         navigate('/admin');
+      } else if (role === 'educator') {
+        navigate('/educator');
       } else {
         navigate('/user');
       }
+      
     } catch (error) {
       console.error('Login failed', error);
     }
