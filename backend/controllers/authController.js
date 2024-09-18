@@ -19,6 +19,7 @@ exports.register = async (req, res) => {
   }
 };
 
+// Register new user
 exports.Eduregister = async (req, res) => {
   const { username, email, password } = req.body;
 
