@@ -10,6 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
 // Use routes
 app.use('/api/auth', authRoutes);
 app.use('/api/auth/educator', educatorRoutes);

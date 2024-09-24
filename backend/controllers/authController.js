@@ -67,11 +67,14 @@ exports.login = async (req, res) => {
     if (!isMatch) return res.status(400).json({ error: 'Invalid password' });
 
     // Generate JWT
-    const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, {
-      expiresIn: '1h',
-    });
+    const generateToken = (user) => {
+      return jwt.sign({ _id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
+  };
+  
+  // Example usage after user authentication
+  const token = generateToken(user);
 
-    res.json({ token, role: user.role });
+    res.json({ token, role: user.role ,_id: user._id});
   } catch (err) {
     res.status(500).json({ error: 'Something went wrong' });
   }
