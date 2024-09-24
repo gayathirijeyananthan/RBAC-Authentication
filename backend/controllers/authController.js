@@ -7,7 +7,7 @@ require('dotenv').config();
 exports.register = async (req, res) => {
   const { username, email, password, role } = req.body;
   
-  // Hash password
+// Hash password
   const hashedPassword = await bcrypt.hash(password, 10);
 
   try {
@@ -54,9 +54,6 @@ exports.Eduregister = async (req, res) => {
     res.status(500).json({ error: 'Registration failed' });
   }
 };
-
-
-
 
 // Login user
 exports.login = async (req, res) => {
