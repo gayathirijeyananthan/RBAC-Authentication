@@ -57,7 +57,7 @@ const App = () => {
         />
         <Route path="/register" element={<Register />} />
         <Route path="/educator/register" element={<Educator />} />
-
+cd
 
         {/* Protected Routes */}
         <Route
