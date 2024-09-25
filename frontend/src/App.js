@@ -14,6 +14,8 @@ import LandingPage from "./components/LandingPage";
 import Educator from "./components/Educator";
 import EduDashboard from "./components/EduDashboard";
 import Navbar from "./components/Navbar";
+import Resource from "../src/components/Resource";
+
 import '../src/components/LandingPage.css'
 
 // Main App Component
@@ -57,7 +59,9 @@ const App = () => {
         />
         <Route path="/register" element={<Register />} />
         <Route path="/educator/register" element={<Educator />} />
-cd
+        <Route path="/educator/resources" element={<Resource/>} />
+
+
 
         {/* Protected Routes */}
         <Route

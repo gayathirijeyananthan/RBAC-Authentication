@@ -1,21 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { getResources, deleteResource } from '../api'; // Import API calls
+import { getResources as fetchAllResources, deleteResource } from '../components/api'; // Rename the imported getResources
 
-const ResourceList = () => {
+const ResourceList = () => { // Renaming component function properly
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
     fetchResources();
   }, []);
 
+  // Fetch resources using the imported getResources (renamed as fetchAllResources)
   const fetchResources = async () => {
-    const response = await getResources();
-    setResources(response.data);
+    try {
+      const response = await fetchAllResources(); // Call the API to get resources
+      setResources(response.data);
+    } catch (error) {
+      console.error('Error fetching resources:', error);
+    }
   };
 
   const handleDelete = async (id) => {
-    await deleteResource(id);
-    fetchResources(); // Refresh the list
+    try {
+      await deleteResource(id); // Call the API to delete resource by id
+      fetchResources(); // Refresh the list after deletion
+    } catch (error) {
+      console.error('Error deleting resource:', error);
+    }
   };
 
   return (

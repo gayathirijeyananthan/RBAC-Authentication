@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000//api/auth/educator'; // Update this to your backend URL
+const API_URL = 'http://localhost:5000/api/auth/educator'; // Update this to your backend URL
 
 // Fetch all resources
 export const getResources = async () => {

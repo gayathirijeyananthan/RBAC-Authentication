@@ -1,23 +1,32 @@
-import React, { useState } from 'react';
-import { addResource } from '../components/api'; // API call
+import React, { useState, useEffect } from 'react';
+import { getResources, updateResource } from '../components/api'; // Assume getResource is defined in API
 
-const AddResource = () => {
+const EditResource = ({ match, history }) => {
+  const resourceId = match.params.id;
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [link, setLink] = useState('');
 
+  useEffect(() => {
+    const fetchResource = async () => {
+      const response = await getResources(resourceId);
+      setTitle(response.data.title);
+      setDescription(response.data.description);
+      setLink(response.data.link);
+    };
+    fetchResource();
+  }, [resourceId]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newResource = { title, description, link };
-    await addResource(newResource);
-    setTitle(''); // Clear fields after submission
-    setDescription('');
-    setLink('');
+    const updatedResource = { title, description, link };
+    await updateResource(resourceId, updatedResource);
+    history.push('/'); // Redirect to the resource list page after updating
   };
 
   return (
     <div>
-      <h2>Add New Resource</h2>
+      <h2>Edit Resource</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Title:</label>
@@ -42,10 +51,10 @@ const AddResource = () => {
             onChange={(e) => setLink(e.target.value)}
           />
         </div>
-        <button type="submit">Add Resource</button>
+        <button type="submit">Update Resource</button>
       </form>
     </div>
   );
 };
 
-export default AddResource;
+export default EditResource;
