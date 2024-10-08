@@ -1,0 +1,29 @@
+.flex{
+    display:flex;
+    text-decoration: right;  
+    
+}
+
+.content1{
+    margin-top: 65px;
+}
+
+.landing-container {
+    font-family: Arial, sans-serif;
+    height: 100vh; /* Full viewport height */
+    width: 100vw;  /* Full viewport width */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar{
+ background-color: blue;
+ height: 100vh; /* Full viewport height */
+width:400px;
+  }
+
+  .content{
+    background-color: antiquewhite;
+    height: 100vh; /* Full viewport height */
+    width: 100vw;
+  }
