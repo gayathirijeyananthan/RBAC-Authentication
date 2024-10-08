@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./LandingPage.css"; // Importing the CSS file for styling
-import Login from "../components/Login"; // Import the Login component
-import Register from "../components/Register"; // Import the Register component
-import Educator from "../components/Educator";
+import "../components/css/LandingPage.css"; // Importing the CSS file for styling
+
 import Navbar from "../components/Navbar";
 
 const LandingPage = () => {

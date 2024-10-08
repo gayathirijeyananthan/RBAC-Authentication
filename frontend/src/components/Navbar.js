@@ -1,7 +1,7 @@
 // src/components/Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './LandingPage.css'; // Make sure to create and include appropriate CSS
+import '../components/css/LandingPage.css'; // Make sure to create and include appropriate CSS
 
 const Navbar = () => {
   return (

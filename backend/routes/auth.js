@@ -16,7 +16,7 @@ router.post('/educator/register', Eduregister);
 router.get('/admin', authMiddleware(['admin']), (req, res) => {
   res.send('Admin Panel');
 });
-
+``
 router.get('/user', authMiddleware(['user']), (req, res) => {
   res.send('User Dashboard');
 });

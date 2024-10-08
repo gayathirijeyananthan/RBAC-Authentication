@@ -70,8 +70,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Educator.css'; // Import external CSS file
-import '../components/Register.css'
+import '../components/css/Educator.css'; // Import external CSS file
+import '../components/css/Register.css'
 
 const EducatorRegistration = () => {
   const [username, setUsername] = useState('');
