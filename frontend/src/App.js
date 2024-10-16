@@ -14,7 +14,9 @@ import LandingPage from "./components/LandingPage";
 import Educator from "./components/Educator";
 import EduDashboard from "./components/EduDashboard";
 import Navbar from "./components/Navbar";
-import './components/css/LandingPage.css'
+import './components/css/LandingPage.css';
+import ResourceList from "./components/Resourcelist";
+
 
 // Main App Component
 const App = () => {
@@ -57,6 +59,7 @@ const App = () => {
         />
         <Route path="/register" element={<Register />} />
         <Route path="/educator/register" element={<Educator />} />
+        <Route path="/educator/resources" element={<ResourceList/>}/>
         
 
 

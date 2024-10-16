@@ -26,4 +26,9 @@ width:400px;
     background-color: antiquewhite;
     height: 100vh; /* Full viewport height */
     width: 100vw;
+  
   }
+
+  .content2{
+    margin-left: 300px;
+    margin-top: 65px;}

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../components/css/EduDashboard.css";
 import Navbar from "../components/Navbar";
+import ResourceList from "../components/Resourcelist";
 
 const EduDashboard = ({ logout }) => {
   return (
@@ -23,7 +24,7 @@ const EduDashboard = ({ logout }) => {
             </div>
           </div>
           <div className="content">
-            <div className="content1">
+            <div className="content2">
               <h2>Educator Dashboard</h2>
               <p>Welcome, Educator!</p>
               <button onClick={logout}>Logout</button>
