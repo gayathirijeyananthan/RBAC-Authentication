@@ -1,0 +1,29 @@
+.resource-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between cards */
+  }
+  
+  .resource-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px; /* Adjust card width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .resource-card:hover {
+    transform: scale(1.05); /* Add a hover effect */
+  }
+  
+  .resource-card h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+  
+  .resource-card p {
+    font-size: 1rem;
+    color: #666;
+  }
+  

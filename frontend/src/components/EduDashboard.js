@@ -15,12 +15,7 @@ const EduDashboard = ({ logout }) => {
               <li>
                 <Link to="/educator/resources">Resource List</Link>
               </li>
-              <li>
-                <Link to="/educator/resources">Resource List</Link>
-              </li>
-              <li>
-                <Link to="/educator/resources">Resource List</Link>
-              </li>
+              
             </div>
           </div>
           <div className="content">
