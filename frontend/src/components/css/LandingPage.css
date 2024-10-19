@@ -44,9 +44,12 @@
   }
   
   .main-content {
-    padding-top: 300px;
     text-align: center;
-    margin: 2rem;
+    background-color: #ffebd6;
+    height:700px;
+    display:flex;
+
+
   }
   
   .cta-button {
@@ -130,4 +133,19 @@
   .close-modal:hover {
     text-decoration: underline;
   }
+
+  .content1{
+text-align: justify;
+padding-left: 300px;
+padding-top: 250px;
+font-size: 50px;
+  }
+
+
+  .content2{
+    padding-top:160px;
+    padding-left: 30px;
+
+  }
   
+ 
