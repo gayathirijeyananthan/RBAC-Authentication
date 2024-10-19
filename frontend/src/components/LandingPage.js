@@ -24,7 +24,7 @@ const LandingPage = () => {
         <div className="content1">
         <h2 style={{fontSize: '50px'}}>Welcome to the E-Learning Platform</h2>
         <p style={{fontSize: '20px'}}>Explore and enhance your skills with top-quality resources.</p>
-        <Link to="/resources" className="cta-button" style={{fontSize: '20px'}}>
+        <Link to="/educator/resources" className="cta-button" style={{fontSize: '20px'}}>
           View Resources
         </Link>
         </div>
