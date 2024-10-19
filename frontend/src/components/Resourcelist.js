@@ -46,7 +46,7 @@ const ResourceList = () => {
       <Navbar />
       <div className="flex">
         <div className="sidebar">
-          <div className="content1">
+          <div className="content11">
             <li>
               <Link to="/educator/resources">Resource List</Link>
             </li>
