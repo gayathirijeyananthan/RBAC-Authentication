@@ -1,119 +1,83 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import "../components/css/EduDashboard.css";
-import "../components/css/Resource.css";
-import AddResourceForm from "./AddResourceForm"; // Import the form component
+import React, { useState } from 'react';
+import axios from 'axios';
 
-const ResourceList = () => {
-  const [resources, setResources] = useState([]);
-  const [error, setError] = useState(null);
-  const [showModal, setShowModal] = useState(false); // State to control modal visibility
-  const [message, setMessage] = useState(''); // State for showing notification
+function AddResourceForm({ onResourceAdded }) { // Receive callback as prop
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [link, setLink] = useState('');
+  const [message, setMessage] = useState('');
 
-  useEffect(() => {
-    const fetchResources = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        const role = localStorage.getItem("role"); // Get the role from localStorage
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        const response = await fetch(
-          "http://localhost:5000/api/auth/educator/",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`, // Only token in Authorization header
-              "X-User-Role": role, // Custom header for role
-            },
+    // Input validation
+    if (!title || !description || !link) {
+      setMessage('All fields are required');
+      return;
+    }
+
+    try {
+      // Sending the POST request to the backend
+      const response = await axios.post(
+        'http://localhost:5000/api/auth/educator/add', 
+        { title, description, link },
+        {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}` // Add your auth token if needed
           }
-        );
-
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status}`);
         }
+      );
+      
+      // Handle success response
+      setMessage(response.data.message);
+      setTitle('');
+      setDescription('');
+      setLink('');
 
-        const data = await response.json();
-        setResources(data);
-      } catch (err) {
-        console.error("Fetch error:", err.message); // Log errors
-        setError(err.message);
-      }
-    };
+      // Notify parent component to close modal and show success message
+      onResourceAdded(response.data.message); 
 
-    fetchResources();
-  }, []);
-
-  // Function to close modal and show success message
-  const handleResourceAdded = (successMessage) => {
-    setShowModal(false); // Close the modal
-    setMessage(successMessage); // Set the success message for notification
-    setTimeout(() => setMessage(''), 3000); // Clear message after 3 seconds
+    } catch (error) {
+      setMessage(error.response ? error.response.data.message : 'Error submitting the form');
+      console.error(error);
+    }
   };
 
   return (
-    <div className="landing-container">
-      <Navbar />
-      <div className="flex">
-        <div className="sidebar">
-          <div className="content11">
-            <li>
-              <Link to="/educator/resources">Resource List</Link>
-            </li>
-          </div>
+    <div>
+      <h2>Add a New Resource</h2>
+      {message && <p>{message}</p>}
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Title</label>
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
         </div>
-        <div className="resource">
-          <h1>Resources</h1>
-
-          {/* Button to open the create resource modal */}
-          <div className="create-resource-btn-container">
-            <button 
-              className="create-resource-btn" 
-              onClick={() => setShowModal(true)} // Show modal on click
-            >
-              Create New Resource
-            </button>
-          </div>
-
-          {/* Notification message */}
-          {message && <div className="notification">{message}</div>}
-
-          {/* Display error if there's any */}
-          {error ? <p>Error: {error}</p> : null}
-
-          {/* Display message if no resources are found */}
-          {resources.length === 0 && !error ? (
-            <p>No resources available.</p>
-          ) : null}
-
-          {/* Display resources */}
-          <div className="resource-container">
-            {resources.map((resource) => (
-              <div key={resource._id} className="resource-card">
-                <h2>{resource.title}</h2>
-                <p>{resource.description}</p>
-              </div>
-            ))}
-          </div>
+        <div>
+          <label>Description</label>
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+          />
         </div>
-      </div>
-
-      {/* Modal for Add Resource Form */}
-      {showModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <button 
-              className="close-modal" 
-              onClick={() => setShowModal(false)}
-            >
-              &times;
-            </button>
-            <AddResourceForm onResourceAdded={handleResourceAdded} /> {/* Pass the callback */}
-          </div>
+        <div>
+          <label>Link</label>
+          <input
+            type="url"
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
+            required
+          />
         </div>
-      )}
+        <button type="submit">Add Resource</button>
+      </form>
     </div>
   );
-};
+}
 
-export default ResourceList;
+export default AddResourceForm;
