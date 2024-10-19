@@ -54,6 +54,11 @@ const ResourceList = () => {
         </div>
         <div className="resource">
           <h1>Resources</h1>
+          <div className="create-resource-btn-container">
+            <Link to="/educator/resources/add">
+              <button className="create-resource-btn">Create New Resource</button>
+            </Link>
+          </div>
           {error ? <p>Error: {error}</p> : null}
           {resources.length === 0 && !error ? (
             <p>No resources available.</p>
