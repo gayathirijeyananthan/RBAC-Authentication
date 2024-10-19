@@ -1,0 +1,18 @@
+.navbar {
+    position: fixed; /* Fixes navbar at the top */
+  top: 0;
+  width: 100%; /* Full width */
+  background-color: #132043; /* Background color */
+  padding: 10px 20px; /* Padding for the navbar */
+  z-index: 1000; /* Keeps the navbar on top of other elements */
+  display: flex;
+  justify-content: space-between; /* Aligns logo and links */
+  align-items: center;
+  color: white;
+  height:70px;
+
+  }
+
+  .links{
+    color:#B8621B ;
+  }

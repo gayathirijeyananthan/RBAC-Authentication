@@ -9,22 +9,12 @@
     flex-direction: column;
   }
   
-  .navbar {
-    position: fixed; /* Fixes navbar at the top */
-  top: 0;
-  width: 100%; /* Full width */
-  background-color: #333; /* Background color */
-  padding: 10px 20px; /* Padding for the navbar */
-  z-index: 1000; /* Keeps the navbar on top of other elements */
-  display: flex;
-  justify-content: space-between; /* Aligns logo and links */
-  align-items: center;
-  color: white;
 
-  }
   
   .navbar-logo h1 {
     margin: 0;
+    color:#FFDD83;
+
   }
   
   .navbar-links {
@@ -40,11 +30,13 @@
   }
   
   .navbar-links a, .navbar-links button {
-    color: white;
+    color:#FFDD83;
     text-decoration: none;
     background: none;
     border: none;
     cursor: pointer;
+    text-shadow: #0056b3;
+    font-weight: 400;
   }
   
   .navbar-links a:hover, .navbar-links button:hover {
@@ -61,14 +53,14 @@
     margin-top: 30px;
     display: inline-block;
     padding: 1rem 2rem;
-    background-color: #007bff;
+    background-color: #B8621B;
     color: white;
     text-decoration: none;
     border-radius: 5px;
   }
   
   .cta-button:hover {
-    background-color: #0056b3;
+    background-color: #F7C04A;
   }
   
   /* Modal Styles */

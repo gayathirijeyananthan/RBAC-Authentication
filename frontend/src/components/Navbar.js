@@ -1,7 +1,7 @@
 // src/components/Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../components/css/LandingPage.css'; // Make sure to create and include appropriate CSS
+import '../components/css/Navbar.css'; // Make sure to create and include appropriate CSS
 
 const Navbar = () => {
   return (
@@ -10,10 +10,10 @@ const Navbar = () => {
         <h1>E-Learning</h1>
       </div>
       <ul className="navbar-links">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/educator/resources">Resources</Link></li>
-        <li><Link to="/login">Login</Link></li>
-        <li><Link to="/educator/register">Register as educator</Link></li>
+        <li className='links'><Link to="/">Home</Link></li>
+        <li className='links'><Link to="/educator/resources">Resources</Link></li>
+        <li className='links'><Link to="/login">Login</Link></li>
+        <li className='links'><Link to="/educator/register">Register as educator</Link></li>
       </ul>
     </nav>
   );
