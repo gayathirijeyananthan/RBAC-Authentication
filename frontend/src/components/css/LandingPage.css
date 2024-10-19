@@ -44,7 +44,6 @@
   }
   
   .main-content {
-    text-align: center;
     background-color: #ffebd6;
     height:700px;
     display:flex;
@@ -138,13 +137,12 @@
 text-align: justify;
 padding-left: 300px;
 padding-top: 250px;
-font-size: 50px;
   }
 
 
   .content2{
     padding-top:160px;
-    padding-left: 30px;
+    padding-right: 200px;
 
   }
   
